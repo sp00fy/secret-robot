@@ -7,17 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Fonts\Pericles.xnb</Output>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Fonts\Pericles.xnb</Output>
       <Time>2012-09-12T05:31:33.7680352-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\explosions.png</Source>
-      <Name>Textures\explosions</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\explosions.xnb</Output>
-      <Time>2012-09-12T05:04:43.4169284-04:00</Time>
     </Item>
     <Item>
       <Source>Textures\PrimaryBackground.png</Source>
@@ -25,8 +16,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\PrimaryBackground.xnb</Output>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PrimaryBackground.xnb</Output>
       <Time>2012-09-12T06:59:52.9691321-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\explosions.png</Source>
+      <Name>Textures\explosions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\explosions.xnb</Output>
+      <Time>2012-09-12T05:04:43.4169284-04:00</Time>
     </Item>
     <Item>
       <Source>Textures\ParallaxStars.png</Source>
@@ -34,8 +34,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\ParallaxStars.xnb</Output>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\ParallaxStars.xnb</Output>
       <Time>2012-09-12T07:00:04.1297705-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\PlayerShip.png</Source>
+      <Name>Textures\PlayerShip</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PlayerShip.xnb</Output>
+      <Time>2012-09-12T07:57:12.1238405-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\PlayerBullet.png</Source>
+      <Name>Textures\PlayerBullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PlayerBullet.xnb</Output>
+      <Time>2012-09-12T07:58:12.4532912-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -43,10 +61,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\RailzContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\RailzContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>E:\git\secret-robot\Railz\RailzContent\</RootDirectory>
+      <LoggerRootDirectory>E:\git\secret-robot\Railz\Railz\</LoggerRootDirectory>
+      <IntermediateDirectory>E:\git\secret-robot\Railz\RailzContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

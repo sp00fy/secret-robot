@@ -24,6 +24,13 @@ namespace Railz
         Background background;
         AnimatedSprite Explosion;
 
+        Player player;
+        public int iPlayAreaTop = 30;
+        public int iPlayAreaBottom = 630;
+        int iMaxHorizontalSpeed = 8;
+        float fBoardUpdateDelay = 0f;
+        float fBoardUpdateInterval = 0.01f;
+
         #endregion
 
         public Game1()
@@ -63,21 +70,22 @@ namespace Railz
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            //
             // Explosion
-
             Explosion = new AnimatedSprite(
                 Content.Load<Texture2D>(@"Textures\Explosions"),
                 0, 0, 64, 64, 16);
             Explosion.X = 0;
-            Explosion.Y = 0;
-            
+            Explosion.Y = 0;            
+            //
             // Background
             background = new Background(
                 Content,
                 @"Textures\PrimaryBackground",
                 @"Textures\ParallaxStars");
-
+            //
+            // Player
+            player = new Player(Content.Load<Texture2D>(@"Textures\PlayerShip"));
 
             // TODO: use this.Content to load your game content here
         }
@@ -114,16 +122,38 @@ namespace Railz
             // TODO: Add your update logic here
             
             // Scroll the background when we move the ship
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            //if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            //{
+            //    background.BackgroundOffset -= 1;
+            //    background.ParallaxOffset -= 2;
+            //}
+
+            //if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            //{
+            //    background.BackgroundOffset += 1;
+            //    background.ParallaxOffset += 2;
+            //}
+
+            player.SpeedChangeCount += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (player.SpeedChangeCount > player.SpeedChangeDelay)
             {
-                background.BackgroundOffset -= 1;
-                background.ParallaxOffset -= 2;
+                CheckHorizontalMovementKeys(Keyboard.GetState(),
+                                            GamePad.GetState(PlayerIndex.One));
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            player.VerticalChangeCount += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (player.VerticalChangeCount > player.VerticalChangeDelay)
             {
-                background.BackgroundOffset += 1;
-                background.ParallaxOffset += 2;
+                CheckVerticalMovementKeys(Keyboard.GetState(),
+                                          GamePad.GetState(PlayerIndex.One));
+            }
+            player.Update(gameTime);
+
+            fBoardUpdateDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (fBoardUpdateDelay > fBoardUpdateInterval)
+            {
+                fBoardUpdateDelay = 0f;
+                UpdateBoard();
             }
 
             Explosion.Update(gameTime);
@@ -145,12 +175,95 @@ namespace Railz
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             background.Draw(spriteBatch);
+            player.Draw(spriteBatch);
             Explosion.Draw(spriteBatch, 0, 0, false);
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
         
+        #endregion
+
+        #region Methods
+
+        //
+        // Horizontal Movement
+        protected void CheckHorizontalMovementKeys(KeyboardState ksKeys,
+                                           GamePadState gsPad)
+        {
+            bool bResetTimer = false;
+
+            player.Thrusting = false;
+            if ((ksKeys.IsKeyDown(Keys.Right)) ||
+                (gsPad.ThumbSticks.Left.X > 0))
+            {
+                if (player.ScrollRate < iMaxHorizontalSpeed)
+                {
+                    player.ScrollRate += player.AccelerationRate;
+                    if (player.ScrollRate > iMaxHorizontalSpeed)
+                        player.ScrollRate = iMaxHorizontalSpeed;
+                    bResetTimer = true;
+                }
+                player.Thrusting = true;
+                player.Facing = 0;
+            }
+
+            if ((ksKeys.IsKeyDown(Keys.Left)) ||
+                (gsPad.ThumbSticks.Left.X < 0))
+            {
+                if (player.ScrollRate > -iMaxHorizontalSpeed)
+                {
+                    player.ScrollRate -= player.AccelerationRate;
+                    if (player.ScrollRate < -iMaxHorizontalSpeed)
+                        player.ScrollRate = -iMaxHorizontalSpeed;
+                    bResetTimer = true;
+                }
+                player.Thrusting = true;
+                player.Facing = 1;
+            }
+
+            if (bResetTimer)
+                player.SpeedChangeCount = 0.0f;
+        }
+        //
+        // VerticalMovement
+        protected void CheckVerticalMovementKeys(KeyboardState ksKeys,
+                                        GamePadState gsPad)
+        {
+
+            bool bResetTimer = false;
+
+            if ((ksKeys.IsKeyDown(Keys.Up)) ||
+                (gsPad.ThumbSticks.Left.Y > 0))
+            {
+                if (player.Y > iPlayAreaTop)
+                {
+                    player.Y -= player.VerticalMovementRate;
+                    bResetTimer = true;
+                }
+            }
+
+            if ((ksKeys.IsKeyDown(Keys.Down)) ||
+                (gsPad.ThumbSticks.Left.Y < 0))
+            {
+                if (player.Y < iPlayAreaBottom)
+                {
+                    player.Y += player.VerticalMovementRate;
+                    bResetTimer = true;
+                }
+            }
+
+            if (bResetTimer)
+                player.VerticalChangeCount = 0f;
+        }
+        //
+        // Gameboard Update
+        public void UpdateBoard()
+        {
+            background.BackgroundOffset += player.ScrollRate;
+            background.ParallaxOffset += player.ScrollRate * 2;
+        }
+
         #endregion
 
     }

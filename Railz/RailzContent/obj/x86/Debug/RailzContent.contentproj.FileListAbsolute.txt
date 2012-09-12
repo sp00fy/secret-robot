@@ -1,1 +1,2 @@
 C:\Users\Jason\documents\visual studio 2010\Projects\Railz\Railz\RailzContent\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\git\secret-robot\Railz\RailzContent\obj\x86\Debug\ResolveAssemblyReference.cache

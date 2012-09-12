@@ -8,3 +8,15 @@ C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\D
 C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\explosions.xnb
 C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\PrimaryBackground.xnb
 C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\ParallaxStars.xnb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Fonts\Pericles.xnb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PrimaryBackground.xnb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\explosions.xnb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\ParallaxStars.xnb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Railz.exe
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Railz.pdb
+E:\git\secret-robot\Railz\Railz\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\git\secret-robot\Railz\Railz\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\git\secret-robot\Railz\Railz\obj\x86\Debug\Railz.exe
+E:\git\secret-robot\Railz\Railz\obj\x86\Debug\Railz.pdb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PlayerShip.xnb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PlayerBullet.xnb

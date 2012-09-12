@@ -23,7 +23,7 @@ namespace Railz
         float fSpeedChangeCount = 0.0f;
         float fSpeedChangeDelay = 0.01f;
         float fVerticalChangeCount = 0.0f;
-        float fVerticalChangeDelay = 0.1f;
+        float fVerticalChangeDelay = 0.0f;
         
         #endregion
 
@@ -42,18 +42,110 @@ namespace Railz
         }
 
         public int Facing
+        {
+            get { return iFacing; }
+            set { iFacing = value; }
+        }
+
+        public bool Thrusting
+        {
+            get { return bThrusting; }
+            set { bThrusting = value; }
+        }
+
+        public int ScrollRate
+        {
+            get { return iScrollRate; }
+            set { iScrollRate = value; }
+        }
+
+        public int AccelerationRate
+        {
+            get { return iShipAccelerationRate; }
+            set { iShipAccelerationRate = value; }
+        }
+
+        public int VerticalMovementRate
+        {
+            get { return iShipVerticalMoveRate; }
+            set { iShipVerticalMoveRate = value; }
+        }
+
+        public float SpeedChangeCount
+        {
+            get { return fSpeedChangeCount; }
+            set { fSpeedChangeCount = value; }
+        }
+
+        public float SpeedChangeDelay
+        {
+            get { return fSpeedChangeDelay; }
+            set { fSpeedChangeDelay = value; }
+        }
+
+        public float VerticalChangeCount
+        {
+            get { return fVerticalChangeCount; }
+            set { fVerticalChangeCount = value; }
+        }
+
+        public float VerticalChangeDelay
+        {
+            get { return fVerticalChangeDelay; }
+            set { fVerticalChangeDelay = value; }
+        }
+
+        public Rectangle BoundingBox
+        {
+            get { return new Rectangle(iX, iY, 72, 16); }
+        }
 
         #endregion
 
         #region Constructor
 
-
+        public Player(Texture2D texture)
+        {
+            asSprite = new AnimatedSprite(texture, 0, 0, 72, 16, 4);
+            asSprite.IsAnimating = false;
+        }
 
         #endregion
 
         #region Methods
 
 
+
+        #endregion
+
+        #region Draw
+
+        public void Draw(SpriteBatch sb)
+        {
+            asSprite.Draw(sb, iX, iY, false);
+        }
+
+        #endregion
+
+        #region Update
+
+        public void Update(GameTime gametime)
+        {
+            if (iFacing == 0)
+            {
+                if (bThrusting)
+                    asSprite.Frame = 1;
+                else
+                    asSprite.Frame = 0;
+            }
+            else
+            {
+                if (bThrusting)
+                    asSprite.Frame = 3;
+                else
+                    asSprite.Frame = 2;
+            }
+        }
 
         #endregion
     }
