@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Fonts\Pericles.spritefont</Source>
+      <Name>Fonts\Pericles</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Fonts\Pericles.xnb</Output>
+      <Time>2012-09-12T05:31:33.7680352-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\explosions.png</Source>
+      <Name>Textures\explosions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\explosions.xnb</Output>
+      <Time>2012-09-12T05:04:43.4169284-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\PrimaryBackground.png</Source>
+      <Name>Textures\PrimaryBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\PrimaryBackground.xnb</Output>
+      <Time>2012-09-12T06:59:52.9691321-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\ParallaxStars.png</Source>
+      <Name>Textures\ParallaxStars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\ParallaxStars.xnb</Output>
+      <Time>2012-09-12T07:00:04.1297705-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\RailzContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\RailzContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-04-22T16:13:34.0878407-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

@@ -1,0 +1,10 @@
+C:\Users\Jason\documents\visual studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Railz.exe
+C:\Users\Jason\documents\visual studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Railz.pdb
+C:\Users\Jason\documents\visual studio 2010\Projects\Railz\Railz\Railz\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jason\documents\visual studio 2010\Projects\Railz\Railz\Railz\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Jason\documents\visual studio 2010\Projects\Railz\Railz\Railz\obj\x86\Debug\Railz.exe
+C:\Users\Jason\documents\visual studio 2010\Projects\Railz\Railz\Railz\obj\x86\Debug\Railz.pdb
+C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Fonts\Pericles.xnb
+C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\explosions.xnb
+C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\PrimaryBackground.xnb
+C:\Users\Jason\Documents\Visual Studio 2010\Projects\Railz\Railz\Railz\bin\x86\Debug\Content\Textures\ParallaxStars.xnb

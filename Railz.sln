@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Railz", "Railz\Railz\Railz.csproj", "{852D0827-DD43-4927-B113-66DE6DE68B98}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "RailzContent", "Railz\RailzContent\RailzContent.contentproj", "{164C9E96-9D42-4AEA-BDB6-430052C0FC2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{852D0827-DD43-4927-B113-66DE6DE68B98}.Debug|x86.ActiveCfg = Debug|x86
+		{852D0827-DD43-4927-B113-66DE6DE68B98}.Debug|x86.Build.0 = Debug|x86
+		{852D0827-DD43-4927-B113-66DE6DE68B98}.Release|x86.ActiveCfg = Release|x86
+		{852D0827-DD43-4927-B113-66DE6DE68B98}.Release|x86.Build.0 = Release|x86
+		{164C9E96-9D42-4AEA-BDB6-430052C0FC2A}.Debug|x86.ActiveCfg = Debug|x86
+		{164C9E96-9D42-4AEA-BDB6-430052C0FC2A}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
