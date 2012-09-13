@@ -31,6 +31,13 @@ namespace Railz
         float fBoardUpdateDelay = 0f;
         float fBoardUpdateInterval = 0.01f;
 
+        int iBulletVerticalOffset = 12;
+        int[] iBulletFacingOffsets = new int[2] { 70, 0 };
+        static int iMaxBullets = 40;
+        Bullet[] bullets = new Bullet[iMaxBullets];
+        float fBulletDelayTimer = 0.0f;
+        float fFireDelay = 0.15f;
+
         #endregion
 
         public Game1()
@@ -86,6 +93,12 @@ namespace Railz
             //
             // Player
             player = new Player(Content.Load<Texture2D>(@"Textures\PlayerShip"));
+            //
+            // Bullets
+            bullets[0] = new Bullet(Content.Load<Texture2D>(@"Textures\PlayerBullet"));
+
+            for (int x = 1; x < iMaxBullets; x++)
+                bullets[x] = new Bullet();
 
             // TODO: use this.Content to load your game content here
         }
@@ -118,21 +131,7 @@ namespace Railz
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
-            // TODO: Add your update logic here
-            
-            // Scroll the background when we move the ship
-            //if (Keyboard.GetState().IsKeyDown(Keys.Left))
-            //{
-            //    background.BackgroundOffset -= 1;
-            //    background.ParallaxOffset -= 2;
-            //}
-
-            //if (Keyboard.GetState().IsKeyDown(Keys.Right))
-            //{
-            //    background.BackgroundOffset += 1;
-            //    background.ParallaxOffset += 2;
-            //}
+            fBulletDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             player.SpeedChangeCount += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (player.SpeedChangeCount > player.SpeedChangeDelay)
@@ -156,7 +155,9 @@ namespace Railz
                 UpdateBoard();
             }
 
+            // TODO: Add your update logic here
             Explosion.Update(gameTime);
+            UpdateBullets(gameTime);
             base.Update(gameTime);
         }
 
@@ -257,13 +258,46 @@ namespace Railz
                 player.VerticalChangeCount = 0f;
         }
         //
-        // Gameboard Update
+        // Game board Update
         public void UpdateBoard()
         {
             background.BackgroundOffset += player.ScrollRate;
             background.ParallaxOffset += player.ScrollRate * 2;
         }
+        //
+        // Helper Function for firing bullets (when the player presses the fire button)
+        protected void FireBullet(int iVerticalOffset)
+        {
+            // Find and fire a free bullet
+            for (int x = 0; x < iMaxBullets; x++)
+            {
+                if (!bullets[x].IsActive)
+                {
+                    bullets[x].Fire(player.X + iBulletFacingOffsets[player.Facing],
+                                             player.Y + iBulletVerticalOffset + iVerticalOffset,
+                                             player.Facing);
+                    break;
 
+                }
+            }
+        }
+        protected void CheckOtherKeys(KeyboardState ksKeys, GamePadState gsPad)
+        {
+
+            // Space Bar or Game Pad A button fire the 
+            // player's weapon.  The weapon has it's
+            // own regulating delay (fBulletDelayTimer) 
+            // to pace the firing of the player's weapon.
+            if ((ksKeys.IsKeyDown(Keys.Space)) ||
+                (gsPad.Buttons.A == ButtonState.Pressed))
+            {
+                if (fBulletDelayTimer >= fFireDelay)
+                {
+                    FireBullet(0);
+                    fBulletDelayTimer = 0.0f;
+                }
+            }
+        }
         #endregion
 
     }
