@@ -177,6 +177,17 @@ namespace Railz
             spriteBatch.Begin();
             background.Draw(spriteBatch);
             player.Draw(spriteBatch);
+
+            // Draw any active player bullets on the screen
+            for (int i = 0; i < iMaxBullets; i++)
+            {
+                // Only draw active bullets
+                if (bullets[i].IsActive)
+                {
+                    bullets[i].Draw(spriteBatch);
+                }
+            }
+
             Explosion.Draw(spriteBatch, 0, 0, false);
             spriteBatch.End();
 
@@ -256,7 +267,9 @@ namespace Railz
 
             if (bResetTimer)
                 player.VerticalChangeCount = 0f;
-        }
+            CheckOtherKeys(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One));
+        }      
+
         //
         // Game board Update
         public void UpdateBoard()
@@ -298,6 +311,17 @@ namespace Railz
                 }
             }
         }
+
+        protected void UpdateBullets(GameTime gameTime)
+        {
+            // Updates the location of all the active player bullets.
+            for (int x = 0; x < iMaxBullets; x++)
+            {
+                if (bullets[x].IsActive)
+                    bullets[x].Update(gameTime);
+            }
+        }
+
         #endregion
 
     }
