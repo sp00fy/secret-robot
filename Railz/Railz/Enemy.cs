@@ -1,0 +1,127 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace Railz
+{
+    class Enemy
+    {
+        AnimatedSprite asSprite;
+
+        static int iMapWidth = 1920;
+        static int iPlayAreaTop = 30;
+        static int iPlayAreaBottom = 630;
+        static Random rndGen = new Random();
+        int iX = 0;
+        int iY = -100;
+        int iBackgroundOffset = 0;
+        Vector2 v2motion = new Vector2(0f, 0f);
+        float fSpeed = 1f;
+        float fEnemyMoveCount = 0.0f;
+        float fEnemyDelay = 0.01f;
+        bool bActive = false;
+
+        #region Properties
+
+        public int X
+        {
+            get { return iX; }
+            set { iX = value; }
+        }
+        public int Y
+        {
+            get { return iY; }
+            set { iY = value; }
+        }
+        public bool IsActive
+        {
+            get { return bActive; }
+        }
+        public Rectangle BoundingBox
+        {
+            get
+            {
+                int X = iX - iBackgroundOffset;
+                if (X > iMapWidth)
+                    X -= iMapWidth;
+                if (X < 0)
+                    X += iMapWidth;
+                return new Rectangle(X, iY, 32, 32);
+            }
+        }
+        public int Offset
+        {
+            get { return iBackgroundOffset; }
+            set { iBackgroundOffset = value; }
+        }
+        public float Speed
+        {
+            get { return fSpeed; }
+        }
+        public Vector2 Motion
+        {
+            get { return v2motion; }
+            set { v2motion = value; }
+        }
+
+        #endregion
+        
+        #region Constructor
+
+        public Enemy(Texture2D texture,
+            int X, int Y, int W, int H, int Frames)
+        {
+            asSprite = new AnimatedSprite(texture, X, Y, W, H, Frames);
+        }
+
+        #endregion
+
+        #region Methods
+
+        public void Deactivate()
+        {
+            bActive = false;
+        }
+        private int GetDrawX()
+        {
+            int X = iX - iBackgroundOffset;
+            if (X > iMapWidth)
+                X -= iMapWidth;
+            if (X < 0)
+                X += iMapWidth;
+            return X;
+        }
+
+        public void RandomizeMovement()
+        {
+            v2motion.X = rndGen.Next(-50, 50);
+            v2motion.Y = rndGen.Next(-50, 50);
+            v2motion.Normalize();
+            fSpeed = (float)(rndGen.Next(3, 6));
+        }
+
+        public void Generate(int iLocation, int iShipX)
+        {
+            // Generate a random X location that is NOT
+            // within 200 pixels of the player's ship.
+            do
+            {
+                iBackgroundOffset = iLocation;
+                iX = rndGen.Next(iMapWidth);
+            } while (Math.Abs(GetDrawX() - iShipX) < 200);
+
+            // Generate a random Y location between iPlayAreaTop
+            // and iPlayAreaBottom (the area of our game screen)
+
+            iY = rndGen.Next(iPlayAreaTop, iPlayAreaBottom);
+            RandomizeMovement();
+            bActive = true;
+        }
+
+        #endregion
+
+    }
+}
