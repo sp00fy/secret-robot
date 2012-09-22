@@ -38,6 +38,8 @@ namespace Railz
         float fBulletDelayTimer = 0.0f;
         float fFireDelay = 0.15f;
 
+        int speedMultiplier = 2;
+
         #endregion
 
         public Game1()
@@ -131,6 +133,7 @@ namespace Railz
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            
             fBulletDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             player.SpeedChangeCount += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -206,8 +209,7 @@ namespace Railz
             bool bResetTimer = false;
 
             player.Thrusting = false;
-            if ((ksKeys.IsKeyDown(Keys.Right)) ||
-                (gsPad.ThumbSticks.Left.X > 0))
+            if ((ksKeys.IsKeyDown(Keys.Right)) || (gsPad.ThumbSticks.Left.X > 0))
             {
                 if (player.ScrollRate < iMaxHorizontalSpeed)
                 {
@@ -220,8 +222,7 @@ namespace Railz
                 player.Facing = 0;
             }
 
-            if ((ksKeys.IsKeyDown(Keys.Left)) ||
-                (gsPad.ThumbSticks.Left.X < 0))
+            if ((ksKeys.IsKeyDown(Keys.Left)) || (gsPad.ThumbSticks.Left.X < 0))
             {
                 if (player.ScrollRate > -iMaxHorizontalSpeed)
                 {
@@ -239,14 +240,12 @@ namespace Railz
         }
         //
         // VerticalMovement
-        protected void CheckVerticalMovementKeys(KeyboardState ksKeys,
-                                        GamePadState gsPad)
+        protected void CheckVerticalMovementKeys(KeyboardState ksKeys, GamePadState gsPad)
         {
 
             bool bResetTimer = false;
 
-            if ((ksKeys.IsKeyDown(Keys.Up)) ||
-                (gsPad.ThumbSticks.Left.Y > 0))
+            if ((ksKeys.IsKeyDown(Keys.Up)) || (gsPad.ThumbSticks.Left.Y > 0))
             {
                 if (player.Y > iPlayAreaTop)
                 {
@@ -255,8 +254,7 @@ namespace Railz
                 }
             }
 
-            if ((ksKeys.IsKeyDown(Keys.Down)) ||
-                (gsPad.ThumbSticks.Left.Y < 0))
+            if ((ksKeys.IsKeyDown(Keys.Down)) || (gsPad.ThumbSticks.Left.Y < 0))
             {
                 if (player.Y < iPlayAreaBottom)
                 {
@@ -264,6 +262,17 @@ namespace Railz
                     bResetTimer = true;
                 }
             }
+
+            // TODO Add a timeframe for the button being held down, for every 5 or 10 seconds drop a bar on a meter that shows how much more the engines can take before overheating.
+            // if the engines overheat then the ship drops out of warp (cannot use a) for some specified amount of time.
+            // This feature could also have the ship stranded in space until repairs can be made; again determined by some specified amount of time.
+
+            // Ion-Engines; Uses A on the keyboard & X on the 
+            if ((ksKeys.IsKeyDown(Keys.A)) || (gsPad.Buttons.X == ButtonState.Pressed))
+            {
+                speedMultiplier = 3;
+            }
+            else { speedMultiplier = 2; }
 
             if (bResetTimer)
                 player.VerticalChangeCount = 0f;
@@ -275,7 +284,7 @@ namespace Railz
         public void UpdateBoard()
         {
             background.BackgroundOffset += player.ScrollRate;
-            background.ParallaxOffset += player.ScrollRate * 2;
+            background.ParallaxOffset += player.ScrollRate * speedMultiplier;
         }
         //
         // Helper Function for firing bullets (when the player presses the fire button)
@@ -301,8 +310,7 @@ namespace Railz
             // player's weapon.  The weapon has it's
             // own regulating delay (fBulletDelayTimer) 
             // to pace the firing of the player's weapon.
-            if ((ksKeys.IsKeyDown(Keys.Space)) ||
-                (gsPad.Buttons.A == ButtonState.Pressed))
+            if ((ksKeys.IsKeyDown(Keys.Space)) || (gsPad.Buttons.A == ButtonState.Pressed))
             {
                 if (fBulletDelayTimer >= fFireDelay)
                 {

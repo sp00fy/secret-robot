@@ -112,36 +112,21 @@ namespace Railz
         public void Draw(SpriteBatch spriteBatch)
         {
             // Draw the background panel, offset by the player's location
-            spriteBatch.Draw(
-                t2dbackground,
-                new Rectangle(-1 * iBackgroundOffset,
-                    0, iBackgroundWidth, iViewportHeight),
-                Color.White);
+            spriteBatch.Draw( t2dbackground, new Rectangle(-1 * iBackgroundOffset, 0, iBackgroundWidth, iViewportHeight), Color.White);
 
             // If the right edge of the background panel will end
             // within the bounds of the display, draw a second copy
             // of the background at that location.
 
             if (iBackgroundOffset > iBackgroundWidth - iViewportWidth)
-            {
-                spriteBatch.Draw(
-                    t2dbackground,
-                    new Rectangle(
-                        (-1 * iBackgroundOffset) + iBackgroundWidth,
-                        0,
-                        iBackgroundWidth,
-                        iViewportHeight),
-                    Color.White);
+            { 
+                spriteBatch.Draw( t2dbackground, new Rectangle((-1 * iBackgroundOffset) + iBackgroundWidth, 0, iBackgroundWidth, iViewportHeight), Color.White); 
             }
+            
             if (drawParallax)
             {
                 // Draw the parallax star field
-                spriteBatch.Draw(
-                    t2dParralax,
-                    new Rectangle(-1 * iParallaxOffset,
-                        0, iParallaxWidth,
-                        iViewportHeight),
-                    Color.SlateGray);
+                spriteBatch.Draw( t2dParralax, new Rectangle(-1 * iParallaxOffset, 0, iParallaxWidth, iViewportHeight), Color.SlateGray);
 
                 // if the player is past the point where the star
                 // field will end on the active screen we need
@@ -150,14 +135,7 @@ namespace Railz
 
                 if (iParallaxOffset > iParallaxWidth - iViewportWidth)
                 {
-                    spriteBatch.Draw(
-                        t2dParralax,
-                        new Rectangle(
-                            (-1 * iParallaxOffset) + iParallaxWidth,
-                            0,
-                            iParallaxWidth,
-                            iViewportHeight),
-                        Color.SlateGray);
+                    spriteBatch.Draw( t2dParralax, new Rectangle( (-1 * iParallaxOffset) + iParallaxWidth, 0, iParallaxWidth, iViewportHeight), Color.SlateGray);
                 }
             }
         }
