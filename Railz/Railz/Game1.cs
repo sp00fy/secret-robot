@@ -40,6 +40,13 @@ namespace Railz
 
         int speedMultiplier = 2;
 
+        //Enemy Vars
+        int iMaxEnemies = 9;
+        int iActiveEnemies = 9;
+        static int iTotalMaxEnemies = 30;
+        Enemy[] Enemies = new Enemy[iTotalMaxEnemies];
+        Texture2D t2dEnemyShip;
+
         #endregion
 
         public Game1()
@@ -80,27 +87,37 @@ namespace Railz
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //
-            // Explosion
+            //Explosion
             Explosion = new AnimatedSprite(
                 Content.Load<Texture2D>(@"Textures\Explosions"),
                 0, 0, 64, 64, 16);
             Explosion.X = 0;
             Explosion.Y = 0;            
             //
-            // Background
+            //Background
             background = new Background(
                 Content,
                 @"Textures\PrimaryBackground",
                 @"Textures\ParallaxStars");
             //
-            // Player
+            //Player
             player = new Player(Content.Load<Texture2D>(@"Textures\PlayerShip"));
             //
-            // Bullets
+            //Bullets
             bullets[0] = new Bullet(Content.Load<Texture2D>(@"Textures\PlayerBullet"));
 
             for (int x = 1; x < iMaxBullets; x++)
                 bullets[x] = new Bullet();
+            //
+            //Enemies
+            t2dEnemyShip = Content.Load<Texture2D>(@"Textures\enemy");
+
+            for (int i = 0; i < iTotalMaxEnemies; i++)
+            {
+                Enemies[i] = new Enemy(t2dEnemyShip, 0, 0, 32, 32, 1);
+            }
+
+            StartNewWave();
 
             // TODO: use this.Content to load your game content here
         }
@@ -158,6 +175,12 @@ namespace Railz
                 UpdateBoard();
             }
 
+            for (int i = 0; i < iTotalMaxEnemies; i++)
+            {
+                if (Enemies[i].IsActive)
+                    Enemies[i].Update(gameTime, background.BackgroundOffset);
+            }
+
             // TODO: Add your update logic here
             Explosion.Update(gameTime);
             UpdateBullets(gameTime);
@@ -190,7 +213,12 @@ namespace Railz
                     bullets[i].Draw(spriteBatch);
                 }
             }
-
+            // Draw Enemies
+            for (int i = 0; i < iMaxEnemies; i++)
+            {
+                if (Enemies[i].IsActive)
+                    Enemies[i].Draw(spriteBatch, background.BackgroundOffset);
+            }
             Explosion.Draw(spriteBatch, 0, 0, false);
             spriteBatch.End();
 
@@ -270,7 +298,7 @@ namespace Railz
             // Ion-Engines; Uses A on the keyboard & X on the 
             if ((ksKeys.IsKeyDown(Keys.A)) || (gsPad.Buttons.X == ButtonState.Pressed))
             {
-                speedMultiplier = 3;
+                player.AccelerationRate = 3;
             }
             else { speedMultiplier = 2; }
 
@@ -328,6 +356,24 @@ namespace Railz
                 if (bullets[x].IsActive)
                     bullets[x].Update(gameTime);
             }
+        }
+
+        protected void GenerateEnemies()
+        {
+            if (iMaxEnemies < iTotalMaxEnemies)
+                iMaxEnemies++;
+            iActiveEnemies = 0;
+
+            for (int x = 0; x < iMaxEnemies; x++)
+            {
+                Enemies[x].Generate(background.BackgroundOffset, player.X);
+                iActiveEnemies += 1;
+            }
+        }
+
+        protected void StartNewWave()
+        {
+            GenerateEnemies();
         }
 
         #endregion

@@ -121,6 +121,48 @@ namespace Railz
             bActive = true;
         }
 
+        public void Draw(SpriteBatch sb, int iLocation)
+        {
+            if (bActive)
+                asSprite.Draw(sb, GetDrawX(), iY, false);
+        }
+
+        public void Update(GameTime gametime, int iOffset)
+        {
+            iBackgroundOffset = iOffset;
+
+            fEnemyMoveCount += (float)gametime.ElapsedGameTime.TotalSeconds;
+            if (fEnemyMoveCount > fEnemyDelay)
+            {
+                iX += (int)((float)v2motion.X * fSpeed);
+                iY += (int)((float)v2motion.Y * fSpeed);
+
+                if (rndGen.Next(200) == 1)
+                {
+                    RandomizeMovement();
+                }
+
+                if (iY < iPlayAreaTop)
+                {
+                    iY = iPlayAreaTop;
+                    RandomizeMovement();
+                }
+                if (iY > iPlayAreaBottom)
+                {
+                    iY = iPlayAreaBottom;
+                    RandomizeMovement();
+                }
+                if (iX < 0)
+                    iX += iMapWidth;
+
+                if (iX > iMapWidth)
+                    iX -= iMapWidth;
+
+                fEnemyMoveCount = 0f;
+            }
+            asSprite.Update(gametime);
+        }
+
         #endregion
 
     }

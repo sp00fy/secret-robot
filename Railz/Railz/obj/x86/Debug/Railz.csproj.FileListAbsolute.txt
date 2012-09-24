@@ -20,3 +20,4 @@ E:\git\secret-robot\Railz\Railz\obj\x86\Debug\Railz.exe
 E:\git\secret-robot\Railz\Railz\obj\x86\Debug\Railz.pdb
 E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PlayerShip.xnb
 E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\PlayerBullet.xnb
+E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\Enemy.xnb

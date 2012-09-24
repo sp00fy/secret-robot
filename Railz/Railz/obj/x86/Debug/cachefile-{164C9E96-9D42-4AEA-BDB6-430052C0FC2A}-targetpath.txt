@@ -4,3 +4,4 @@ Content\Textures\explosions.xnb
 Content\Textures\ParallaxStars.xnb
 Content\Textures\PlayerShip.xnb
 Content\Textures\PlayerBullet.xnb
+Content\Textures\Enemy.xnb
