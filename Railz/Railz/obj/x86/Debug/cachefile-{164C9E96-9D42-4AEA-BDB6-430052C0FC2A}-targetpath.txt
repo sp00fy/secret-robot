@@ -5,3 +5,8 @@ Content\Textures\ParallaxStars.xnb
 Content\Textures\PlayerShip.xnb
 Content\Textures\PlayerBullet.xnb
 Content\Textures\Enemy.xnb
+Content\gamefont.xnb
+Content\menufont.xnb
+Content\background.xnb
+Content\blank.xnb
+Content\gradient.xnb

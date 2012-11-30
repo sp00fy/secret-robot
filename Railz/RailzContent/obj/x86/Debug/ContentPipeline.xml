@@ -64,6 +64,51 @@
       <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\Textures\Enemy.xnb</Output>
       <Time>2012-09-24T08:30:01.4872606-04:00</Time>
     </Item>
+    <Item>
+      <Source>gamefont.spritefont</Source>
+      <Name>gamefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\gamefont.xnb</Output>
+      <Time>2012-11-30T08:29:47.4167918-05:00</Time>
+    </Item>
+    <Item>
+      <Source>menufont.spritefont</Source>
+      <Name>menufont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2012-11-30T08:29:47.4323919-05:00</Time>
+    </Item>
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2012-11-30T08:29:47.3855918-05:00</Time>
+    </Item>
+    <Item>
+      <Source>blank.png</Source>
+      <Name>blank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2012-11-30T08:29:47.4011918-05:00</Time>
+    </Item>
+    <Item>
+      <Source>gradient.png</Source>
+      <Name>gradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\git\secret-robot\Railz\Railz\bin\x86\Debug\Content\gradient.xnb</Output>
+      <Time>2012-11-30T08:29:47.4167918-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Railz", "Railz\Railz\Railz.csproj", "{852D0827-DD43-4927-B113-66DE6DE68B98}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "RailzContent", "Railz\RailzContent\RailzContent.contentproj", "{164C9E96-9D42-4AEA-BDB6-430052C0FC2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailzContent", "Railz\RailzContent\RailzContent.contentproj", "{164C9E96-9D42-4AEA-BDB6-430052C0FC2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
